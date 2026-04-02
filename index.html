@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)https://nerfies.github.io/ -->
+<html class="fontawesome-i2svg-active fontawesome-i2svg-complete"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="description" content="FloVD: Optical Flow Meets Video Diffusion Model for Enhanced Camera-Controlled Video Synthesis">
+  <meta name="keywords" content="Video synthesis, camera control, optical flow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DynaVid</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async="" src="./Nerfies_ Deformable Neural Radiance Fields_files/js"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <style type="text/css">svg:not(:root).svg-inline--fa{overflow:visible}.svg-inline--fa{display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-lg{vertical-align:-.225em}.svg-inline--fa.fa-w-1{width:.0625em}.svg-inline--fa.fa-w-2{width:.125em}.svg-inline--fa.fa-w-3{width:.1875em}.svg-inline--fa.fa-w-4{width:.25em}.svg-inline--fa.fa-w-5{width:.3125em}.svg-inline--fa.fa-w-6{width:.375em}.svg-inline--fa.fa-w-7{width:.4375em}.svg-inline--fa.fa-w-8{width:.5em}.svg-inline--fa.fa-w-9{width:.5625em}.svg-inline--fa.fa-w-10{width:.625em}.svg-inline--fa.fa-w-11{width:.6875em}.svg-inline--fa.fa-w-12{width:.75em}.svg-inline--fa.fa-w-13{width:.8125em}.svg-inline--fa.fa-w-14{width:.875em}.svg-inline--fa.fa-w-15{width:.9375em}.svg-inline--fa.fa-w-16{width:1em}.svg-inline--fa.fa-w-17{width:1.0625em}.svg-inline--fa.fa-w-18{width:1.125em}.svg-inline--fa.fa-w-19{width:1.1875em}.svg-inline--fa.fa-w-20{width:1.25em}.svg-inline--fa.fa-pull-left{margin-right:.3em;width:auto}.svg-inline--fa.fa-pull-right{margin-left:.3em;width:auto}.svg-inline--fa.fa-border{height:1.5em}.svg-inline--fa.fa-li{width:2em}.svg-inline--fa.fa-fw{width:1.25em}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-.125em;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:#ff253a;border-radius:1em;-webkit-box-sizing:border-box;box-sizing:border-box;color:#fff;height:1.5em;line-height:1;max-width:5em;min-width:1.5em;overflow:hidden;padding:.25em;right:0;text-overflow:ellipsis;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:0;right:0;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:0;left:0;right:auto;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{right:0;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:0;right:auto;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top left;transform-origin:top left}.fa-lg{font-size:1.3333333333em;line-height:.75em;vertical-align:-.0667em}.fa-xs{font-size:.75em}.fa-sm{font-size:.875em}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:2.5em;padding-left:0}.fa-ul>li{position:relative}.fa-li{left:-2em;position:absolute;text-align:center;width:2em;line-height:inherit}.fa-border{border:solid .08em #eee;border-radius:.1em;padding:.2em .25em .15em}.fa-pull-left{float:left}.fa-pull-right{float:right}.fa.fa-pull-left,.fab.fa-pull-left,.fal.fa-pull-left,.far.fa-pull-left,.fas.fa-pull-left{margin-right:.3em}.fa.fa-pull-right,.fab.fa-pull-right,.fal.fa-pull-right,.far.fa-pull-right,.fas.fa-pull-right{margin-left:.3em}.fa-spin{-webkit-animation:fa-spin 2s infinite linear;animation:fa-spin 2s infinite linear}.fa-pulse{-webkit-animation:fa-spin 1s infinite steps(8);animation:fa-spin 1s infinite steps(8)}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scale(-1,1);transform:scale(-1,1)}.fa-flip-vertical{-webkit-transform:scale(1,-1);transform:scale(1,-1)}.fa-flip-both,.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1,-1);transform:scale(-1,-1)}:root .fa-flip-both,:root .fa-flip-horizontal,:root .fa-flip-vertical,:root .fa-rotate-180,:root .fa-rotate-270,:root .fa-rotate-90{-webkit-filter:none;filter:none}.fa-stack{display:inline-block;height:2em;position:relative;width:2.5em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.svg-inline--fa.fa-stack-1x{height:1em;width:1.25em}.svg-inline--fa.fa-stack-2x{height:2em;width:2.5em}.fa-inverse{color:#fff}.sr-only{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.sr-only-focusable:active,.sr-only-focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}.svg-inline--fa .fa-primary{fill:var(--fa-primary-color,currentColor);opacity:1;opacity:var(--fa-primary-opacity,1)}.svg-inline--fa .fa-secondary{fill:var(--fa-secondary-color,currentColor);opacity:.4;opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-primary{opacity:.4;opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-secondary{opacity:1;opacity:var(--fa-primary-opacity,1)}.svg-inline--fa mask .fa-primary,.svg-inline--fa mask .fa-secondary{fill:#000}.fad.fa-inverse{color:#fff}</style><link href="./Nerfies_ Deformable Neural Radiance Fields_files/css" rel="stylesheet">
+
+  <link rel="stylesheet" href="./Nerfies_ Deformable Neural Radiance Fields_files/bulma.min.css">
+  <link rel="stylesheet" href="./Nerfies_ Deformable Neural Radiance Fields_files/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./Nerfies_ Deformable Neural Radiance Fields_files/bulma-slider.min.css">
+  <link rel="stylesheet" href="./Nerfies_ Deformable Neural Radiance Fields_files/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./Nerfies_ Deformable Neural Radiance Fields_files/academicons.min.css">
+  <link rel="stylesheet" href="./Nerfies_ Deformable Neural Radiance Fields_files/index.css">
+  <!-- <link rel="icon" href="https://nerfies.github.io/static/images/favicon.svg"> -->
+
+  <script src="./Nerfies_ Deformable Neural Radiance Fields_files/jquery.min.js.다운로드"></script>
+  <script defer="" src="./Nerfies_ Deformable Neural Radiance Fields_files/fontawesome.all.min.js.다운로드"></script>
+  <script src="./Nerfies_ Deformable Neural Radiance Fields_files/bulma-carousel.min.js.다운로드"></script>
+  <script src="./Nerfies_ Deformable Neural Radiance Fields_files/bulma-slider.min.js.다운로드"></script>
+  <script src="./Nerfies_ Deformable Neural Radiance Fields_files/index.js.다운로드"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">DynaVid: Learning to Generate Highly Dynamic Videos using Synthetic Motion Data</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://jinwonjoon.github.io/">Wonjoon Jin</a><sup>1</sup>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://w1jyun.github.io/">Jiyun Won</a><sup>1</sup>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=jHyp7CsAAAAJ&hl=ko">Janghyeok Han</a><sup>1</sup>&nbsp;&nbsp;</span>
+            <br>
+            <span class="author-block">
+              <a href="https://daiqi1989.github.io">Qi Dai</a><sup>2</sup>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://www.microsoft.com/en-us/research/people/cluo/">Chong Luo</a><sup>2</sup>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://www.shbaek.com/">Seung-Hwan Baek</a><sup>1</sup>&nbsp;&nbsp;
+            </span>
+            <span class="author-block">
+              <a href="https://www.scho.pe.kr/">Sunghyun Cho</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="author-block"><sup>1</sup>Pohang University of Science and Technology (POSTECH)</span>  &nbsp;&nbsp;&nbsp;  <span class="author-block"><sup>2</sup>Microsoft Research Asia (MSRA)</span>
+          </div>
+
+          
+          <div class="is-size-5 publication-authors" style="padding-top: 0.5rem;">
+            <span class="author-block">CVPR 2026</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="./dynavid_files/main.pdf" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <svg class="svg-inline--fa fa-file-pdf fa-w-12" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="./dynavid_files/supp.pdf" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <svg class="svg-inline--fa fa-file-pdf fa-w-12" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg>
+                  </span>
+                  <span>Supple</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2502.08244" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <svg class="svg-inline--fa fa-file-pdf fa-w-12" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/JinWonjoon/DynaVid/" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="column content">
+      <!-- Paper video. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <!-- <h2 class="title is-3">Fast Forward</h2> -->
+          <div class="publication-video">
+            <iframe src="./dynavid_files/DynaVid_video.mp4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+          </div>
+        </div>
+      </div>
+      <!--/ Paper video. -->
+    </div>
+
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+        DynaVid is an optical-flow-based two-stage video generation framework </br> that enables accurate camera control and natural object motion synthesis.
+      </h2>
+    </div>
+
+    <div>
+      <figure>
+        <picture>
+          <img src="./dynavid_files/teaser.jpg" alt="photo">
+        </picture>
+        <figcaption style="text-align: center; font-size: 14px; color: gray;">
+          (Top) DynaVid synthesizes videos with highly dynamic motions, such as breakdancing.
+          </br>(Bottom) DynaVid enables accurate camera control for extreme camera trajectories, such as a 180-degree camera rotation.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Despite recent progress, video diffusion models still struggle to synthesize realistic videos involving highly dynamic motions or requiring fine-grained motion controllability. 
+            A central limitation lies in the scarcity of such examples in commonly used training datasets. 
+            To address this, we introduce DynaVid, a video synthesis framework that leverages synthetic motion data in training, which is represented as optical flow and rendered using computer graphics pipelines. 
+            This approach offers two key advantages. 
+            First, synthetic motion offers diverse motion patterns and precise control signals that are difficult to obtain from real data. 
+            Second, unlike rendered videos with artificial appearances, rendered optical flow encodes only motion and is decoupled from appearance, thereby preventing models from reproducing the unnatural look of synthetic videos.
+            Building on this idea, DynaVid adopts a two-stage generation framework: a motion generator first synthesizes motion, and then a motion-guided video generator produces video frames conditioned on that motion.
+            This decoupled formulation enables the model to learn dynamic motion patterns from synthetic data while preserving visual realism from real-world videos. 
+            We validate our framework on two challenging scenarios, vigorous human motion generation and extreme camera motion control, where existing datasets are particularly limited.
+            Extensive experiments demonstrate that DynaVid improves the realism and controllability in dynamic motion generation and camera motion control.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Framework. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="columns is-centered has-text-centered">
+        <h2 class="title is-3">Visual Comparison</h2>
+        </div>
+        
+        <div class="column content">
+          <section class="video-section">
+            <div class="container">
+
+              <p>
+                Previous video diffusion models (e.g., CogVideoX, Wan, GEN3C, FloVD) struggle to synthesize realistic videos 
+                <br>with highly dynamic motions or extreme camera trajectories, such as breakdancing or 180-degree camera rotation.
+                <br> In contrast, DynaVid synthesizes videos with improved realism and controllability in these challenging scenarios.
+              </p>
+
+              <h2 class="section-title">CogVideoX-5B</h2>
+              <div class="video-container">
+                <video autoplay muted loop playsinline>
+                  <source src="./dynavid_files/chal_cog1.mp4" type="video/mp4">
+                </video>
+                <video autoplay muted loop playsinline>
+                  <source src="./dynavid_files/chal_cog2.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <video autoplay muted loop playsinline>
+                  <source src="./dynavid_files/chal_cog3.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              
+              <h2 class="section-title">Wan2.2-5B</h2>
+              <div class="video-container">
+                <video autoplay muted loop playsinline>
+                  <source src="./dynavid_files/chal_wan1.mp4" type="video/mp4">
+                </video>
+                <video autoplay muted loop playsinline>
+                  <source src="./dynavid_files/chal_wan2.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <video autoplay muted loop playsinline>
+                  <source src="./dynavid_files/chal_wan3.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              
+              <h2 class="section-title">DynaVid (Ours)</h2>
+              <div>
+                <video autoplay muted loop playsinline>
+                  <source src="./dynavid_files/chal_our1_1.mp4" type="video/mp4">
+                </video>
+                <video autoplay muted loop playsinline>
+                  <source src="./dynavid_files/chal_our1_2.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <video autoplay muted loop playsinline>
+                  <source src="./dynavid_files/chal_our1_3.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              <hr class="separator">
+
+              <h2 class="section-title">GEN3C</h2>
+              <div>
+                <video autoplay muted loop playsinline>
+                  <source src="./dynavid_files/chal_gen1.mp4" type="video/mp4">
+                </video>
+                <video autoplay muted loop playsinline>
+                  <source src="./dynavid_files/chal_gen2.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <video autoplay muted loop playsinline>
+                  <source src="./dynavid_files/chal_gen3.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              <h2 class="section-title">FloVD</h2>
+              <div>
+                <video autoplay muted loop playsinline>
+                  <source src="./dynavid_files/chal_flo1.mp4" type="video/mp4">
+                </video>
+                <video autoplay muted loop playsinline>
+                  <source src="./dynavid_files/chal_flo2.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <video autoplay muted loop playsinline>
+                  <source src="./dynavid_files/chal_flo3.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              
+              <h2 class="section-title">DynaVid (Ours)</h2>
+              <div>
+                <video autoplay muted loop playsinline>
+                  <source src="./dynavid_files/chal_our2_1.mp4" type="video/mp4">
+                </video>
+                <video autoplay muted loop playsinline>
+                  <source src="./dynavid_files/chal_our2_2.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <video autoplay muted loop playsinline>
+                  <source src="./dynavid_files/chal_our2_3.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+
+            </div>
+          </section>
+
+      </div>
+    </div>
+    <!-- Framework. -->
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="columns is-centered has-text-centered">
+        <h2 class="title is-3">Challenge in Dataset Restriction</h2>
+        </div>
+        <br>
+        <div class="column content">
+          <div class="columns is-centered">
+            <div class="column is-half">
+              <picture>
+                <img src="./dynavid_files/challenge.jpg" alt="photo">
+              </picture>
+            </div>
+            <div class="column is-half">
+              <video autoplay muted loop playsinline class="large-video">
+                <source src="./dynavid_files/chal_wan3.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p>
+            Commonly used training datasets contain very few samples with highly dynamic motion. 
+            As a result, models trained on such restricted data often fail to generate or control highly dynamic motion.
+            Thus, we need new datasets!
+          </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="columns is-centered has-text-centered">
+        <h2 class="title is-3">Key Idea: Synthetic Motion Data</h2>
+        </div>
+        <br>
+        <div class="column content">
+          <div class="columns is-centered">
+            <div class="column is-half">
+              <p>
+                Synthetic rendered video
+              </p>
+              <video autoplay muted loop playsinline class="medium-video">
+                <source src="./dynavid_files/key1.mp4" type="video/mp4">
+              </video>
+              <p>
+                Synthetic rendered motion (optical flow)
+              </p>
+              <video autoplay muted loop playsinline class="medium-video">
+                <source src="./dynavid_files/key2.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="column is-half">
+              <picture>
+                <img src="./dynavid_files/key3.jpg" alt="photo">
+              </picture>
+            </div>
+          </div>
+          <p>
+            We leverage synthetic motion data, represented as optical flow and rendered using computer graphics pipelines, in training. 
+            This approach offers several advantages. 
+            Synthetic motion offers diverse motion patterns and precise control signals that are difficult to obtain from real data. 
+            In addition, unlike rendered videos with artificial appearances, rendered optical flow encodes only motion and is decoupled from appearance, thereby preventing models from reproducing the unnatural look of synthetic videos.
+          </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+
+    <!-- <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="column content">
+          <div class="columns is-centered has-text-centered">
+          <h3 class="title is-3">Key Contributions</h3>
+          </div>
+          <ul class="key-contributions">
+            <li>We propose <strong>FloVD</strong>, camera-controllable video generation framework that leverages <strong>optical flow</strong>.</li>
+            <li>FloVD enables <strong>high-quality video synthesis</strong> by utilizing <strong>arbitrary training videos</strong> without ground-truth camera parameters.
+            <li>FloVD allows for <strong>accurate camera control</strong> by leveraging <strong>background motions of optical flow</strong>.
+            <li>FloVD adopt a <strong>two-stage pipeline</strong> for detailed camera control and high-quality video synthesis.</li>
+          </ul>
+        </div>
+      </div>
+    </div> -->
+    
+    <!-- Dataset. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="columns is-centered has-text-centered">
+        <h2 class="title is-3">DynaVid Dataset</h2>
+        </div>
+        <div class="column content">
+          <picture>
+            <img src="./dynavid_files/data_pipeline.jpg" alt="photo">
+          </picture>
+          <p>
+            Overview of our dataset generation pipeline based on the Cycles renderer in Blender.
+            We use it to synthesize the DynaVid-Human and DynaVid-Camera datasets.
+            The pipeline consists of three stages: 3D scene construction, camera trajectory definition, and optical flow rendering.
+          </p>
+      </div>
+    </div>
+    <!-- Dataset. -->
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Framework. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="columns is-centered has-text-centered">
+        <h2 class="title is-3">DynaVid Framework</h2>
+        </div>
+        <div class="column content">
+          <picture>
+            <img src="./dynavid_files/framework.jpg" alt="photo">
+          </picture>
+          <p>
+            Overview of DynaVid. (a) The motion generator first synthesizes motion and then produces video frames conditioned on the generated motion. 
+            For camera-controlled video synthesis, Plucker embeddings are provided as additional input. (b) Our framework adopts VACE to incorporate control signals such as Plucker embeddings or optical flow maps. 
+          </p>
+      </div>
+    </div>
+    <!-- Framework. -->
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="columns is-centered has-text-centered">
+          <h2 class="title is-3">Video Results</h2>
+        </div>
+
+        <section class="video-section">
+          <div class="container">
+            <h2 class="section-title"></h2>
+            <div class="video-container">
+              <video autoplay muted loop playsinline>
+                <source src="./dynavid_files/additional_results/1.mp4" type="video/mp4">
+              </video>
+              <video autoplay muted loop playsinline>
+                <source src="./dynavid_files/additional_results/2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <video autoplay muted loop playsinline>
+                <source src="./dynavid_files/additional_results/3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <video autoplay muted loop playsinline>
+                <source src="./dynavid_files/additional_results/4.mp4" type="video/mp4">
+              </video>
+              <video autoplay muted loop playsinline>
+                <source src="./dynavid_files/additional_results/5.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <video autoplay muted loop playsinline>
+                <source src="./dynavid_files/additional_results/6.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <video autoplay muted loop playsinline>
+                <source src="./dynavid_files/additional_results/7.mp4" type="video/mp4">
+              </video>
+              <video autoplay muted loop playsinline>
+                <source src="./dynavid_files/additional_results/8.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <video autoplay muted loop playsinline>
+                <source src="./dynavid_files/additional_results/9.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </div>
+          </div>
+        </section>
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="columns is-centered has-text-centered">
+          <h2 class="title is-3">Analysis</h2>
+        </div>
+
+        <section class="video-section">
+          <div class="container">
+            <h2 class="section-title">Behavior beyond the training domain</h2>
+            <div class="video-container">
+              <video autoplay muted loop playsinline>
+                <source src="./dynavid_files/additional_results/6.mp4" type="video/mp4">
+              </video>
+              <video autoplay muted loop playsinline>
+                <source src="./dynavid_files/additional_results/10.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>
+                Capability to synthesize non-human dynamic motions.
+              </p>
+            </div>
+          </div>
+        </section>
+        
+        <section class="video-section">
+          <div class="container">
+            <h2 class="section-title">Limitations</h2>
+            <div class="video-container">
+              <video autoplay muted loop playsinline>
+                <source src="./dynavid_files/additional_results/limit1.mp4" type="video/mp4">
+              </video>
+              <video autoplay muted loop playsinline>
+                <source src="./dynavid_files/additional_results/limit2.mp4" type="video/mp4">
+              </video>
+            </div>
+            <p>
+              Failure in generating multiple people and interacting with the surrounding environment
+            </p>
+          </div>
+        </section>
+
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- News. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">News</h2>
+        <div class="content has-text-justified">
+          <p>
+            <ul>
+              <li>Our paper has been accepted to CVPR 2026</li> 
+            </ul>
+          </p>
+        </div>
+
+      </div>
+    </div>
+    <!-- News. -->
+
+
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+
+        <div class="content has-text-justified">
+          <ul>
+            <li>We use <a href="https://github.com/Wan-Video/Wan2.2">Wan2.2-5B</a> as our baseline model.</li> 
+            <li>We borrow a website template from <a href="https://nerfies.github.io/">Nerfies</a>. Thanks for the source code.</li> 
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+
+<style>
+  /* Section 전체 스타일 */
+  .video-section {
+    padding: 40px 0;
+    text-align: center;
+    background-color: #f9f9f9; /* 배경색 */
+  }
+
+  /* 제목 스타일 */
+  .section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  /* 비디오 컨테이너 */
+  .video-container {
+    display: flex;
+    justify-content: center;  /* 가운데 정렬 */
+    gap: 5px;  /* 비디오 사이 간격 */
+    flex-wrap: wrap; /* 화면이 작으면 자동 줄바꿈 */
+  }
+
+  .video-container_half {
+    width: 50%; /* 왼쪽 절반 차지 */
+    height: 100vh;
+    background-color: #000; /* 비디오 배경 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .text-container_half {
+    width: 50%; /* 오른쪽 절반 */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f4f4f4; /* 배경색 */
+  }
+
+  /* 캡션 스타일 */
+  .video-container figcaption {
+    font-size: 14px;
+    color: gray;
+    margin-top: 5px;
+  }
+
+  /* 이미지지 컨테이너 */
+  .image-container {
+    display: flex;
+    justify-content: center;  /* 가운데 정렬 */
+    gap: 5px;  /* 비디오 사이 간격 */
+    flex-wrap: wrap; /* 화면이 작으면 자동 줄바꿈 */
+  }
+
+  /* 비디오 스타일 */
+  video {
+    width: 30%;  /* 비디오 크기 자동 조정 */
+    max-width: 300px; /* 최대 크기 제한 */
+    border-radius: 8px; /* 모서리 둥글게 */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+  }
+
+  /* 큰 비디오 스타일 */
+  .large-video {
+    width: 90% !important;  /* 더 크게 */
+    max-width: 600px !important; /* 최대 크기 증가 */
+  }
+
+  .medium-video {
+    width: 60% !important;  /* 더 크게 */
+    max-width: 600px !important; /* 최대 크기 증가 */
+  }
+
+  .separator {
+    border: none;
+    border-bottom: 1px solid #999;
+    margin: 1rem 0;
+  }
+
+</style>
+
+
+
+
+
+<style>
+  /* Key Contributions 스타일 */
+  .key-contributions {
+    list-style-type: disc; /* 기본 원형 bullet point */
+    padding-left: 20px; /* 왼쪽 여백 추가 */
+  }
+
+  .key-contributions li {
+    font-size: 18px;
+    margin-bottom: 8px; /* 각 항목 간 간격 */
+  }
+</style>
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{jin2025flovd,
+    title   = {FloVD: Optical Flow Meets Video Diffusion Model for Enhanced Camera-Controlled Video Synthesis},
+    author  = {Jin, Wonjoon and Dai, Qi and Luo, Chong and Baek, Seung-Hwan and Cho, Sunghyun},
+    journal = {arXiv preprint arXiv:2502.08244},
+    year    = {2025},
+  }</code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>
