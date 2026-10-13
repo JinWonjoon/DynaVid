@@ -1,0 +1,12 @@
+pycolmap==3.11.1
+git+https://github.com/facebookresearch/segment-anything.git
+git+https://github.com/EasternJournalist/utils3d.git@d790d33#egg=utils3d
+pyceres==2.4
+kornia==0.8.1
+ray[default]
+flow_vis
+moviepy==1.0.0
+gradio==5.31.0
+pydantic==2.10.6
+scikit-learn
+jaxtyping
